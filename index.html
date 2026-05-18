@@ -1348,104 +1348,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact collapse-mobile" id="contact">
-  <div class="container">
-    <p class="section-label lbl-blue">Get in touch</p>
-    <h2 class="section-title">Request a Free Quote</h2>
-    <p class="section-sub">Tell us what you need and we'll get back to you quickly with a straightforward, no-obligation quote.</p>
-
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>Prefer to reach out directly?</h3>
-
-        <div class="contact-row">
-          <div class="contact-row-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          </div>
-          <div class="contact-row-text">
-            <strong>Facebook</strong>
-            <a href="https://www.facebook.com/profile.php?id=61575166768384" target="_blank" rel="noopener">Message us on Facebook</a>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          </div>
-          <div class="contact-row-text">
-            <strong>Based in</strong>
-            <span>Bathgate, West Lothian, Scotland</span>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-row-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div class="contact-row-text">
-            <strong>Response time</strong>
-            <span>We aim to reply within a few hours</span>
-          </div>
-        </div>
-
-        <div class="info-box dark">
-          <p>Not sure what you need?</p>
-          <small>Just drop us a message — we'll have a look and give you honest advice. No pressure, no obligation.</small>
-        </div>
-        <div class="info-box gr">
-          <p>Bundle and save</p>
-          <small>Combine gutters, lawn, or a rubbish uplift on the same visit and ask us about a combined rate.</small>
-        </div>
-      </div>
-
-      <div class="contact-form">
-        <h3>Get Your Free Quote</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="e.g. John">
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="e.g. Smith">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="07xxx xxxxxx">
-        </div>
-        <div class="form-group">
-          <label for="postcode">Postcode</label>
-          <input type="text" id="postcode" placeholder="e.g. EH48 2AB">
-        </div>
-        <div class="form-group">
-          <label for="service">Service Required</label>
-          <select id="service">
-            <option value="">— Select a service —</option>
-            <optgroup label="Gutter Cleaning">
-              <option>Gutter Cleaning — One-Off</option>
-              <option>Gutter Cleaning — Quarterly Plan (every 3 months)</option>
-              <option>Gutter Cleaning — Biannual Plan (every 6 months)</option>
-              <option>Gutter Cleaning — Annual Plan (once a year)</option>
-            </optgroup>
-            <optgroup label="Additional Services">
-              <option>Lawn Maintenance</option>
-              <option>Rubbish Uplift</option>
-              <option>Multiple services — combined quote please</option>
-            </optgroup>
-            <option>Not sure — I'd like some advice</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Anything else we should know?</label>
-          <textarea id="message" placeholder="e.g. two-storey house, lots of trees nearby, garage full of old furniture..."></textarea>
-        </div>
-        <button class="form-submit" onclick="handleSubmit()">Send My Quote Request</button>
-        <p class="form-note">No spam, no obligation — just an honest quote from a local team.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- EMAIL FLOATING BUTTON -->
 <a href="mailto:neil.xtramile@gmail.com?subject=Quote%20enquiry%20-%20Xtra%20Mile" class="email-fab" aria-label="Email us">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -1473,20 +1375,6 @@
 </footer>
 
 <script>
-function handleSubmit() {
-  const fname = document.getElementById('fname').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const service = document.getElementById('service').value;
-  if (!fname || !phone || !service) {
-    alert('Please fill in your name, phone number, and the service you need.');
-    return;
-  }
-  const btn = document.querySelector('.form-submit');
-  btn.textContent = "Request Sent! We'll be in touch shortly.";
-  btn.style.background = '#2e9e5b';
-  btn.disabled = true;
-}
-
 function initQuoteBuilder() {
   const wrap = document.querySelector('.qb-wrap');
   if (!wrap) return;
