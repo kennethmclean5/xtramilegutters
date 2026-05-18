@@ -209,30 +209,53 @@
   .why { background:var(--off-white); }
 
   .why-grid {
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:1.4rem; margin-top:3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem 2rem;
+    margin-top: 3.5rem;
   }
 
   .why-card {
-    background:var(--white); border:1px solid var(--border);
-    border-radius:var(--radius-lg); padding:1.6rem;
-    transition:box-shadow 0.2s,transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.5rem;
   }
-
-  .why-card:hover { box-shadow:0 8px 28px rgba(13,27,42,.09); transform:translateY(-2px); }
 
   .why-icon {
-    width:44px; height:44px; border-radius:var(--radius);
-    display:flex; align-items:center; justify-content:center; margin-bottom:1rem;
+    width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--navy);
+    margin-bottom: 1.1rem;
   }
 
-  .why-icon svg { width:22px; height:22px; }
-  .wi-blue  { background:var(--sky-pale);   color:var(--sky); }
-  .wi-green { background:var(--green-pale); color:var(--green); }
-  .wi-amber { background:var(--amber-pale); color:var(--amber); }
+  .why-icon svg { width: 48px; height: 48px; }
 
-  .why-card h3 { font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:0.45rem; }
-  .why-card p  { font-size:0.91rem; color:var(--text-mid); line-height:1.65; font-weight:300; }
+  .why-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.55rem;
+    letter-spacing: 0.04em;
+    color: var(--navy);
+    margin-bottom: 0.55rem;
+    line-height: 1;
+  }
+
+  .why-card p {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 290px;
+  }
+
+  @media (max-width: 1024px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .why-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  }
 
   /* WHAT WE OFFER */
   .additional { background:var(--white); }
@@ -1052,43 +1075,43 @@
     <p class="section-sub">One local team covering gutters, gardens, and general uplifts. No fuss, no hidden costs — just reliable work done right.</p>
     <div class="why-grid">
       <div class="why-card">
-        <div class="why-icon wi-blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
         <h3>Locally Owned</h3>
         <p>We're your neighbours — a West Lothian business serving West Lothian people. No call centres, just honest, personal service.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon wi-blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Fully Insured</h3>
         <p>All our work is backed by full public liability insurance across every service we offer. You're in safe hands from start to finish.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon wi-green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>Flexible Scheduling</h3>
         <p>Early starts, weekends, evenings — we work around you, not the other way round. Your time matters.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon wi-green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 7c0-5.333-8-5.333-8 0"/><path d="M10 7v14"/><path d="M6 21h12"/><path d="M6 13h10"/></svg>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7c0-5.333-8-5.333-8 0"/><path d="M10 7v14"/><path d="M6 21h12"/><path d="M6 13h10"/></svg>
         </div>
         <h3>Transparent Pricing</h3>
         <p>No hidden charges, no surprise invoices. You get a clear quote upfront and that's exactly what you pay.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon wi-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
         <h3>Residential &amp; Commercial</h3>
         <p>From family homes to rental properties and business premises — we work across all types of property.</p>
       </div>
       <div class="why-card">
-        <div class="why-icon wi-amber">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <h3>5-Star Reputation</h3>
         <p>Our reviews speak for themselves. We take pride in the trust our customers place in us — and we never take it for granted.</p>
