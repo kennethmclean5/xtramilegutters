@@ -540,6 +540,43 @@
     .whatsapp-fab { width: 54px; height: 54px; bottom: 1rem; right: 1rem; }
     .whatsapp-fab svg { width: 28px; height: 28px; }
   }
+
+  /* MOBILE COLLAPSIBLE SECTIONS */
+  @media (max-width:768px) {
+    section.collapse-mobile { padding: 2.25rem 2rem; }
+
+    section.collapse-mobile .section-title {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 0; cursor: pointer; user-select: none;
+    }
+
+    section.collapse-mobile .section-title::after {
+      content: ''; display: inline-block;
+      width: 11px; height: 11px;
+      border-right: 2.5px solid currentColor;
+      border-bottom: 2.5px solid currentColor;
+      transform: rotate(45deg) translate(-3px, -3px);
+      transition: transform 0.3s;
+      flex-shrink: 0; opacity: 0.75;
+    }
+
+    section.collapse-mobile:not(.collapsed) { padding-bottom: 3.5rem; }
+    section.collapse-mobile:not(.collapsed) .section-title { margin-bottom: 0.9rem; }
+    section.collapse-mobile:not(.collapsed) .section-title::after {
+      transform: rotate(-135deg) translate(-3px, -3px);
+    }
+
+    section.collapse-mobile.collapsed .section-sub,
+    section.collapse-mobile.collapsed .why-grid,
+    section.collapse-mobile.collapsed .add-grid,
+    section.collapse-mobile.collapsed .plans-grid,
+    section.collapse-mobile.collapsed .contact-grid,
+    section.collapse-mobile.collapsed .areas-list,
+    section.collapse-mobile.collapsed .areas-visual,
+    section.collapse-mobile.collapsed .info-box { display: none; }
+
+    section.areas.collapse-mobile .areas-grid { margin-top: 0; }
+  }
 </style>
 </head>
 <body>
@@ -615,7 +652,7 @@
 </section>
 
 <!-- WHY US -->
-<section class="why" id="why">
+<section class="why collapse-mobile" id="why">
   <div class="container">
     <p class="section-label lbl-blue">Why choose us</p>
     <h2 class="section-title">We Go The Extra Mile — Every Time</h2>
@@ -668,7 +705,7 @@
 </section>
 
 <!-- ADDITIONAL SERVICES -->
-<section class="additional" id="additional">
+<section class="additional collapse-mobile" id="additional">
   <div class="container">
     <p class="section-label lbl-green">What we do</p>
     <h2 class="section-title">More Than Just Gutters</h2>
@@ -712,7 +749,7 @@
 </section>
 
 <!-- GUTTER PLANS -->
-<section class="services" id="services">
+<section class="services collapse-mobile" id="services">
   <div class="container">
     <p class="section-label lbl-blue">Gutter cleaning plans</p>
     <h2 class="section-title">One-Off or Ongoing — We've Got You</h2>
@@ -776,7 +813,7 @@
 </section>
 
 <!-- AREAS -->
-<section class="areas" id="areas">
+<section class="areas collapse-mobile" id="areas">
   <div class="container">
     <div class="areas-grid">
       <div>
@@ -827,7 +864,7 @@
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="contact collapse-mobile" id="contact">
   <div class="container">
     <p class="section-label lbl-blue">Get in touch</p>
     <h2 class="section-title">Request a Free Quote</h2>
@@ -961,10 +998,33 @@ function handleSubmit() {
   btn.disabled = true;
 }
 
+function initMobileCollapse() {
+  document.querySelectorAll('section.collapse-mobile').forEach(section => {
+    section.classList.add('collapsed');
+    const title = section.querySelector('.section-title');
+    if (!title) return;
+    title.setAttribute('role', 'button');
+    title.setAttribute('tabindex', '0');
+    const toggle = () => {
+      if (window.innerWidth > 768) return;
+      section.classList.toggle('collapsed');
+    };
+    title.addEventListener('click', toggle);
+    title.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+}
+initMobileCollapse();
+
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    if (target) {
+      e.preventDefault();
+      if (target.classList.contains('collapse-mobile')) target.classList.remove('collapsed');
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
 </script>
