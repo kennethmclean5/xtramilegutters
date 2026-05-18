@@ -333,11 +333,66 @@
   /* BEFORE / AFTER SLIDER */
   .comparison { background: var(--off-white); }
 
+  .ba-carousel { max-width: 880px; margin: 3rem auto 0; position: relative; }
+
+  .ba-slide { display: none; }
+  .ba-slide.active { display: block; animation: ba-fade 0.35s ease; }
+
+  @keyframes ba-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .ba-controls {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin-top: 1.25rem;
+  }
+
+  .ba-arrow {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, border-color 0.2s;
+  }
+
+  .ba-arrow:hover { background: var(--sky-pale); border-color: var(--sky); }
+  .ba-arrow:active { transform: scale(0.95); }
+  .ba-arrow svg { width: 16px; height: 16px; }
+
+  .ba-caption {
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--text-mid);
+    min-width: 130px;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  .ba-dots {
+    display: flex; justify-content: center; gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .ba-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .ba-dot:hover { background: var(--text-light); }
+  .ba-dot.active { background: var(--sky); transform: scale(1.25); }
+
   .ba-slider {
     position: relative;
     width: 100%;
-    max-width: 880px;
-    margin: 3rem auto 0;
+    margin: 0 auto;
     aspect-ratio: 3 / 2;
     overflow: hidden;
     border-radius: var(--radius-lg);
@@ -996,7 +1051,7 @@
     section.collapse-mobile.collapsed .areas-list,
     section.collapse-mobile.collapsed .areas-visual,
     section.collapse-mobile.collapsed .info-box,
-    section.collapse-mobile.collapsed .ba-slider,
+    section.collapse-mobile.collapsed .ba-carousel,
     section.collapse-mobile.collapsed .qb-wrap { display: none; }
 
     section.areas.collapse-mobile .areas-grid { margin-top: 0; }
@@ -1134,16 +1189,46 @@
   <div class="container">
     <p class="section-label lbl-blue">Real results</p>
     <h2 class="section-title">See the Difference</h2>
-    <p class="section-sub">Drag the slider to see what a proper clean looks like, same gutter, before and after.</p>
-    <div class="ba-slider" role="slider" aria-label="Before and after comparison slider" tabindex="0">
-      <img class="ba-img ba-after" src="/gutter-after.jpeg" alt="Gutter after cleaning">
-      <img class="ba-img ba-before" src="/gutter-before.jpeg" alt="Gutter before cleaning">
-      <span class="ba-label ba-label-before">Before</span>
-      <span class="ba-label ba-label-after">After</span>
-      <div class="ba-handle">
-        <div class="ba-handle-circle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
+    <p class="section-sub">Drag each slider to see what a proper job looks like, same spot, before and after.</p>
+    <div class="ba-carousel">
+      <div class="ba-slide active" data-caption="Gutter clean">
+        <div class="ba-slider" role="slider" aria-label="Gutter before and after" tabindex="0">
+          <img class="ba-img ba-after" src="/gutter-after.jpeg" alt="Gutter after cleaning">
+          <img class="ba-img ba-before" src="/gutter-before.jpeg" alt="Gutter before cleaning">
+          <span class="ba-label ba-label-before">Before</span>
+          <span class="ba-label ba-label-after">After</span>
+          <div class="ba-handle">
+            <div class="ba-handle-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="ba-slide" data-caption="Garden tidy">
+        <div class="ba-slider" role="slider" aria-label="Garden before and after" tabindex="0">
+          <img class="ba-img ba-after" src="/garden-after.jpg" alt="Garden after tidy">
+          <img class="ba-img ba-before" src="/garden-before.jpg" alt="Garden before tidy">
+          <span class="ba-label ba-label-before">Before</span>
+          <span class="ba-label ba-label-after">After</span>
+          <div class="ba-handle">
+            <div class="ba-handle-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-controls">
+        <button class="ba-arrow ba-prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="ba-caption" id="ba-caption">Gutter clean</div>
+        <button class="ba-arrow ba-next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+      <div class="ba-dots">
+        <button class="ba-dot active" data-slide="0" aria-label="Show gutter slide"></button>
+        <button class="ba-dot" data-slide="1" aria-label="Show garden slide"></button>
       </div>
     </div>
   </div>
@@ -1484,6 +1569,27 @@ function initQuoteBuilder() {
   };
 }
 initQuoteBuilder();
+
+function initBaCarousel() {
+  document.querySelectorAll('.ba-carousel').forEach(carousel => {
+    const slides = carousel.querySelectorAll('.ba-slide');
+    const dots = carousel.querySelectorAll('.ba-dot');
+    const caption = carousel.querySelector('#ba-caption');
+    const prev = carousel.querySelector('.ba-prev');
+    const next = carousel.querySelector('.ba-next');
+    let idx = 0;
+    const show = i => {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle('active', n === idx));
+      dots.forEach((d, n) => d.classList.toggle('active', n === idx));
+      if (caption) caption.textContent = slides[idx].dataset.caption || '';
+    };
+    dots.forEach((d, i) => d.addEventListener('click', () => show(i)));
+    if (prev) prev.addEventListener('click', () => show(idx - 1));
+    if (next) next.addEventListener('click', () => show(idx + 1));
+  });
+}
+initBaCarousel();
 
 function initBeforeAfter() {
   document.querySelectorAll('.ba-slider').forEach(slider => {
