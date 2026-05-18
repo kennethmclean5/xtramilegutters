@@ -536,9 +536,31 @@
 
   .whatsapp-fab svg { width: 32px; height: 32px; }
 
+  /* EMAIL FLOATING BUTTON */
+  .email-fab {
+    position: fixed; bottom: 6rem; right: 1.5rem;
+    width: 60px; height: 60px;
+    background: var(--sky); color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(58,155,213,.4);
+    z-index: 99;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .email-fab:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 22px rgba(58,155,213,.55);
+  }
+
+  .email-fab svg { width: 28px; height: 28px; }
+
   @media (max-width:768px) {
     .whatsapp-fab { width: 54px; height: 54px; bottom: 1rem; right: 1rem; }
     .whatsapp-fab svg { width: 28px; height: 28px; }
+    .email-fab { width: 54px; height: 54px; bottom: 5rem; right: 1rem; }
+    .email-fab svg { width: 24px; height: 24px; }
   }
 
   /* MOBILE COLLAPSIBLE SECTIONS */
@@ -960,6 +982,11 @@
     </div>
   </div>
 </section>
+
+<!-- EMAIL FLOATING BUTTON (swap the address in the href when you have a real one) -->
+<a href="mailto:info@xtramileservices.co.uk?subject=Quote%20enquiry%20-%20Xtra%20Mile" class="email-fab" aria-label="Email us">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</a>
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <a href="https://wa.me/447579035219?text=Hi%2C%20I%27d%20like%20a%20quote%20please" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
