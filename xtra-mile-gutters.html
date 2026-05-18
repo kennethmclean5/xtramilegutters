@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xtra Mile Property Services | West Lothian, Scotland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e42;
+    --navy-light: #243d56;
+    --sky: #3a9bd5;
+    --sky-light: #5ab4e8;
+    --sky-pale: #e8f5fc;
+    --green: #2e9e5b;
+    --green-light: #44c273;
+    --green-pale: #e5f7ed;
+    --amber: #d9731a;
+    --amber-light: #f0924a;
+    --amber-pale: #fdf0e3;
+    --white: #ffffff;
+    --off-white: #f5f7fa;
+    --text-dark: #0d1b2a;
+    --text-mid: #3a4f62;
+    --text-light: #6b8299;
+    --border: #d4e3ef;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    padding: 0 2rem;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .nav-logo .lw { color: var(--white); }
+  .nav-logo .lb { color: var(--sky-light); }
+  .nav-logo .lg { color: var(--green-light); }
+  .nav-logo .la { color: var(--amber-light); }
+
+  .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--sky) !important;
+    color: var(--white) !important;
+    padding: 0.42rem 1.15rem;
+    border-radius: var(--radius);
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--sky-light) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(155deg, #050d16 0%, var(--navy) 50%, #0f2236 100%);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 110px 2rem 6rem;
+    position: relative; overflow: hidden;
+  }
+
+  .glow-blue  { position:absolute; top:-15%; right:-8%; width:55%; height:75%; background:radial-gradient(ellipse,rgba(58,155,213,.14) 0%,transparent 65%); pointer-events:none; }
+  .glow-green { position:absolute; bottom:5%; right:15%; width:40%; height:55%; background:radial-gradient(ellipse,rgba(46,158,91,.1) 0%,transparent 65%); pointer-events:none; }
+  .glow-amber { position:absolute; top:25%; left:-5%; width:35%; height:50%; background:radial-gradient(ellipse,rgba(217,115,26,.09) 0%,transparent 65%); pointer-events:none; }
+
+  .hero::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:90px;
+    background:var(--white);
+    clip-path:ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-inner { max-width:1100px; margin:0 auto; width:100%; position:relative; z-index:1; }
+
+  .hero-tag {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.17);
+    color:rgba(255,255,255,.78); font-size:0.79rem; font-weight:600;
+    letter-spacing:0.1em; text-transform:uppercase;
+    padding:0.33rem 0.9rem; border-radius:50px; margin-bottom:1.4rem;
+  }
+
+  .hero-tag svg { width:13px; height:13px; }
+
+  h1 {
+    font-family:'Bebas Neue', sans-serif;
+    font-size:clamp(3.4rem,8vw,6.8rem);
+    line-height:0.92; letter-spacing:0.02em;
+    color:var(--white); margin-bottom:1.5rem;
+  }
+
+  h1 em { font-style:normal; display:block; }
+  .a-blue  { color:var(--sky-light); }
+  .a-green { color:var(--green-light); }
+  .a-amber { color:var(--amber-light); }
+
+  .hero-sub {
+    font-size:1.1rem; color:rgba(255,255,255,.62);
+    max-width:530px; margin-bottom:2.5rem;
+    font-weight:300; line-height:1.75;
+  }
+
+  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+
+  .btn-primary {
+    background:var(--sky); color:var(--white);
+    text-decoration:none; padding:0.85rem 2rem;
+    border-radius:var(--radius); font-weight:600; font-size:1rem;
+    transition:background 0.2s,transform 0.15s; display:inline-block;
+  }
+
+  .btn-primary:hover { background:var(--sky-light); transform:translateY(-2px); }
+
+  .btn-outline {
+    color:rgba(255,255,255,.82); text-decoration:none;
+    padding:0.85rem 2rem; border-radius:var(--radius);
+    font-weight:500; font-size:1rem;
+    border:1px solid rgba(255,255,255,.24);
+    transition:border-color 0.2s,color 0.2s; display:inline-block;
+  }
+
+  .btn-outline:hover { border-color:rgba(255,255,255,.6); color:var(--white); }
+
+  .hero-pills { margin-top:2.5rem; display:flex; gap:0.7rem; flex-wrap:wrap; }
+
+  .svc-pill {
+    display:inline-flex; align-items:center; gap:0.45rem;
+    font-size:0.84rem; font-weight:600; padding:0.38rem 1rem;
+    border-radius:50px; border:1.5px solid; letter-spacing:0.02em;
+  }
+
+  .svc-pill svg { width:14px; height:14px; flex-shrink:0; }
+  .pill-blue  { color:var(--sky-light);   border-color:rgba(58,155,213,.4);  background:rgba(58,155,213,.1); }
+  .pill-green { color:var(--green-light); border-color:rgba(46,158,91,.4);   background:rgba(46,158,91,.1); }
+  .pill-amber { color:var(--amber-light); border-color:rgba(217,115,26,.4);  background:rgba(217,115,26,.1); }
+
+  .hero-badges { margin-top:2rem; display:flex; gap:1.75rem; flex-wrap:wrap; }
+
+  .hero-badge {
+    display:flex; align-items:center; gap:0.45rem;
+    color:rgba(255,255,255,.48); font-size:0.83rem;
+  }
+
+  .hero-badge svg { width:15px; height:15px; color:rgba(255,255,255,.3); flex-shrink:0; }
+
+  /* SHARED */
+  section { padding:5rem 2rem; }
+  .container { max-width:1100px; margin:0 auto; }
+
+  .section-label {
+    font-size:0.75rem; font-weight:700; letter-spacing:0.12em;
+    text-transform:uppercase; margin-bottom:0.65rem;
+  }
+
+  .lbl-blue  { color:var(--sky); }
+  .lbl-green { color:var(--green); }
+  .lbl-amber { color:var(--amber); }
+
+  .section-title {
+    font-family:'Bebas Neue', sans-serif;
+    font-size:clamp(2.2rem,4vw,3.1rem);
+    line-height:1; color:var(--navy);
+    letter-spacing:0.02em; margin-bottom:0.9rem;
+  }
+
+  .section-title.light { color:var(--white); }
+
+  .section-sub { color:var(--text-mid); font-size:1rem; max-width:550px; line-height:1.75; font-weight:300; }
+  .section-sub.light { color:rgba(255,255,255,.58); }
+
+  /* WHY */
+  .why { background:var(--off-white); }
+
+  .why-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1.4rem; margin-top:3rem;
+  }
+
+  .why-card {
+    background:var(--white); border:1px solid var(--border);
+    border-radius:var(--radius-lg); padding:1.6rem;
+    transition:box-shadow 0.2s,transform 0.2s;
+  }
+
+  .why-card:hover { box-shadow:0 8px 28px rgba(13,27,42,.09); transform:translateY(-2px); }
+
+  .why-icon {
+    width:44px; height:44px; border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center; margin-bottom:1rem;
+  }
+
+  .why-icon svg { width:22px; height:22px; }
+  .wi-blue  { background:var(--sky-pale);   color:var(--sky); }
+  .wi-green { background:var(--green-pale); color:var(--green); }
+  .wi-amber { background:var(--amber-pale); color:var(--amber); }
+
+  .why-card h3 { font-size:1.05rem; font-weight:600; color:var(--navy); margin-bottom:0.45rem; }
+  .why-card p  { font-size:0.91rem; color:var(--text-mid); line-height:1.65; font-weight:300; }
+
+  /* ADDITIONAL SERVICES */
+  .additional { background:var(--white); }
+
+  .add-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2rem; margin-top:3rem;
+  }
+
+  .add-card {
+    border-radius:var(--radius-lg); padding:2.25rem 2rem;
+    display:flex; flex-direction:column; gap:1rem;
+    border:1.5px solid; position:relative; overflow:hidden;
+  }
+
+  .add-card.lawn  { background:var(--green-pale); border-color:rgba(46,158,91,.22); }
+  .add-card.waste { background:var(--amber-pale); border-color:rgba(217,115,26,.22); }
+
+  .add-card-icon {
+    width:52px; height:52px; border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .add-card-icon svg { width:26px; height:26px; }
+  .add-card.lawn  .add-card-icon { background:var(--green); color:var(--white); }
+  .add-card.waste .add-card-icon { background:var(--amber); color:var(--white); }
+
+  .add-card h3 {
+    font-family:'Bebas Neue', sans-serif;
+    font-size:1.9rem; letter-spacing:0.04em; line-height:1;
+  }
+
+  .add-card.lawn  h3 { color:#1a6637; }
+  .add-card.waste h3 { color:#8c4a10; }
+
+  .add-card > p { font-size:0.94rem; line-height:1.72; font-weight:300; }
+  .add-card.lawn  > p { color:#275738; }
+  .add-card.waste > p { color:#6e3e12; }
+
+  .add-features { list-style:none; display:flex; flex-direction:column; gap:0.48rem; }
+
+  .add-features li {
+    display:flex; align-items:flex-start; gap:0.5rem;
+    font-size:0.9rem; font-weight:400;
+  }
+
+  .add-features li svg { width:15px; height:15px; flex-shrink:0; margin-top:2px; }
+  .add-card.lawn  .add-features li { color:#1e4f2c; }
+  .add-card.lawn  .add-features svg { color:var(--green); }
+  .add-card.waste .add-features li { color:#5c3210; }
+  .add-card.waste .add-features svg { color:var(--amber); }
+
+  .add-cta {
+    display:inline-block; text-decoration:none; font-weight:600; font-size:0.92rem;
+    padding:0.7rem 1.5rem; border-radius:var(--radius); color:var(--white);
+    margin-top:0.5rem; align-self:flex-start; transition:opacity 0.2s,transform 0.15s;
+  }
+
+  .add-cta:hover { opacity:0.87; transform:translateY(-1px); }
+  .add-card.lawn  .add-cta { background:var(--green); }
+  .add-card.waste .add-cta { background:var(--amber); }
+
+  /* GUTTER PLANS */
+  .services { background:var(--off-white); }
+
+  .plans-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:1.4rem; margin-top:3rem;
+  }
+
+  .plan-card {
+    border:1.5px solid var(--border); border-radius:var(--radius-lg);
+    padding:1.75rem; display:flex; flex-direction:column;
+    transition:box-shadow 0.2s,transform 0.2s;
+    position:relative; overflow:hidden; background:var(--white);
+  }
+
+  .plan-card:hover { box-shadow:0 10px 32px rgba(13,27,42,.09); transform:translateY(-2px); }
+  .plan-card.featured { border-color:var(--sky); border-width:2px; }
+
+  .plan-card.featured::before {
+    content:'Most Popular'; position:absolute; top:1rem; right:-2.6rem;
+    background:var(--sky); color:var(--white);
+    font-size:0.67rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    padding:0.22rem 3rem; transform:rotate(35deg);
+  }
+
+  .plan-badge {
+    display:inline-block; font-size:0.7rem; font-weight:700;
+    letter-spacing:0.08em; text-transform:uppercase;
+    padding:0.2rem 0.7rem; border-radius:50px; margin-bottom:0.9rem;
+    background:var(--sky-pale); color:var(--sky);
+  }
+
+  .plan-badge.gold { background:#fdf4dd; color:#7a5e10; }
+
+  .plan-card h3 {
+    font-family:'Bebas Neue', sans-serif; font-size:1.65rem;
+    letter-spacing:0.04em; color:var(--navy); margin-bottom:0.5rem;
+  }
+
+  .plan-desc { font-size:0.88rem; color:var(--text-mid); line-height:1.65; font-weight:300; margin-bottom:1.4rem; flex:1; }
+
+  .plan-features { list-style:none; margin-bottom:1.5rem; }
+
+  .plan-features li {
+    font-size:0.87rem; color:var(--text-mid);
+    padding:0.38rem 0; display:flex; align-items:flex-start; gap:0.5rem;
+    border-top:1px solid var(--border);
+  }
+
+  .plan-features li:last-child { border-bottom:1px solid var(--border); }
+  .plan-features li svg { width:15px; height:15px; color:var(--sky); flex-shrink:0; margin-top:2px; }
+
+  .plan-cta {
+    display:block; text-align:center; background:var(--navy); color:var(--white);
+    text-decoration:none; padding:0.75rem; border-radius:var(--radius);
+    font-weight:600; font-size:0.92rem; transition:background 0.2s;
+  }
+
+  .plan-cta:hover { background:var(--navy-light); }
+  .plan-card.featured .plan-cta { background:var(--sky); }
+  .plan-card.featured .plan-cta:hover { background:var(--sky-light); }
+
+  /* AREAS */
+  .areas { background:var(--navy); padding:4.5rem 2rem; }
+
+  .areas-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:3.5rem;
+    margin-top:3rem; align-items:start;
+  }
+
+  .areas-list { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:2rem; }
+
+  .area-pill {
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15);
+    color:rgba(255,255,255,.8); font-size:0.85rem; font-weight:500;
+    padding:0.3rem 0.85rem; border-radius:50px;
+  }
+
+  .areas-visual {
+    background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--radius-lg); padding:2rem;
+    display:flex; flex-direction:column; gap:1.25rem;
+  }
+
+  .stat-row { display:flex; align-items:center; gap:1.1rem; }
+
+  .stat-num {
+    font-family:'Bebas Neue', sans-serif;
+    font-size:2.6rem; letter-spacing:0.02em; line-height:1; min-width:85px;
+  }
+
+  .sn-blue  { color:var(--sky-light); }
+  .sn-green { color:var(--green-light); }
+  .sn-amber { color:var(--amber-light); }
+  .sn-white { color:var(--white); font-size:1.7rem; }
+
+  .stat-text { color:rgba(255,255,255,.58); font-size:0.9rem; line-height:1.5; font-weight:300; }
+  .stat-divider { height:1px; background:rgba(255,255,255,.08); }
+
+  /* CONTACT */
+  .contact { background:var(--off-white); }
+
+  .contact-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:4rem;
+    align-items:start; margin-top:3rem;
+  }
+
+  .contact-info h3 { font-size:1rem; font-weight:600; color:var(--navy); margin-bottom:1.4rem; }
+
+  .contact-row {
+    display:flex; align-items:flex-start; gap:0.85rem;
+    padding:0.9rem 0; border-bottom:1px solid var(--border);
+  }
+
+  .contact-row:first-of-type { border-top:1px solid var(--border); }
+
+  .contact-row-icon {
+    width:36px; height:36px; background:var(--sky-pale);
+    border-radius:var(--radius); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+
+  .contact-row-icon svg { width:17px; height:17px; color:var(--sky); }
+
+  .contact-row-text strong {
+    display:block; font-size:0.77rem; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--text-light); font-weight:600; margin-bottom:0.15rem;
+  }
+
+  .contact-row-text a, .contact-row-text span {
+    color:var(--navy); text-decoration:none; font-weight:500; font-size:0.93rem;
+  }
+
+  .contact-row-text a:hover { color:var(--sky); }
+
+  .info-box {
+    margin-top:1rem; border-radius:var(--radius-lg); padding:1.35rem 1.4rem;
+    border-left:4px solid;
+  }
+
+  .info-box.dark { background:var(--navy); border-color:var(--sky); }
+  .info-box.dark p { color:rgba(255,255,255,.88); font-size:0.97rem; font-weight:500; margin-bottom:0.35rem; }
+  .info-box.dark small { color:rgba(255,255,255,.46); font-size:0.86rem; line-height:1.65; font-weight:300; }
+
+  .info-box.gr { background:var(--green-pale); border-color:var(--green); margin-top:0.75rem; }
+  .info-box.gr p { color:#1a6637; font-size:0.97rem; font-weight:500; margin-bottom:0.35rem; }
+  .info-box.gr small { color:#2a5233; font-size:0.86rem; line-height:1.65; font-weight:300; }
+
+  .contact-form {
+    background:var(--white); border:1px solid var(--border);
+    border-radius:var(--radius-lg); padding:2rem;
+  }
+
+  .contact-form h3 {
+    font-family:'Bebas Neue', sans-serif; font-size:1.75rem;
+    color:var(--navy); letter-spacing:0.04em; margin-bottom:1.4rem;
+  }
+
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .form-group { margin-bottom:0.9rem; }
+
+  .form-group label {
+    display:block; font-size:0.79rem; font-weight:600;
+    color:var(--text-mid); margin-bottom:0.33rem; letter-spacing:0.03em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width:100%; padding:0.65rem 0.85rem;
+    border:1.5px solid var(--border); border-radius:var(--radius);
+    font-family:'Outfit', sans-serif; font-size:0.93rem;
+    color:var(--text-dark); background:var(--white);
+    transition:border-color 0.2s; outline:none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color:var(--sky); }
+
+  .form-group textarea { resize:vertical; min-height:88px; }
+
+  .form-submit {
+    width:100%; background:var(--sky); color:var(--white);
+    border:none; padding:0.88rem; border-radius:var(--radius);
+    font-family:'Outfit', sans-serif; font-size:1rem; font-weight:600;
+    cursor:pointer; transition:background 0.2s,transform 0.15s; margin-top:0.4rem;
+  }
+
+  .form-submit:hover { background:var(--sky-light); transform:translateY(-1px); }
+
+  .form-note { font-size:0.77rem; color:var(--text-light); text-align:center; margin-top:0.7rem; }
+
+  /* FOOTER */
+  footer { background:var(--navy); padding:2.5rem 2rem; text-align:center; }
+
+  .footer-logo { font-family:'Bebas Neue', sans-serif; font-size:2.1rem; letter-spacing:0.08em; margin-bottom:0.2rem; }
+  .footer-logo .lw { color:var(--white); }
+  .footer-logo .lb { color:var(--sky-light); }
+  .footer-logo .lg { color:var(--green-light); }
+  .footer-logo .la { color:var(--amber-light); }
+
+  .footer-tagline { color:rgba(255,255,255,.3); font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem; }
+
+  .footer-links { display:flex; justify-content:center; gap:1.5rem; margin:0.75rem 0 1rem; flex-wrap:wrap; }
+
+  .footer-links a {
+    color:rgba(255,255,255,.4); text-decoration:none; font-size:0.84rem; transition:color 0.2s;
+  }
+
+  .footer-links a:hover { color:var(--sky-light); }
+  footer p { color:rgba(255,255,255,.28); font-size:0.81rem; }
+
+  /* RESPONSIVE */
+  @media (max-width:768px) {
+    .nav-links { display:none; }
+    .areas-grid { grid-template-columns:1fr; }
+    .contact-grid { grid-template-columns:1fr; gap:2rem; }
+    .form-row { grid-template-columns:1fr; }
+    .add-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="lw">XTRA </span><span class="lb">M</span><span class="lg">I</span><span class="la">L</span><span class="lw">E</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#additional">Our Services</a></li>
+    <li><a href="#services">Gutter Plans</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="glow-blue"></div>
+  <div class="glow-green"></div>
+  <div class="glow-amber"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+      West Lothian, Scotland
+    </div>
+    <h1>
+      YOUR PROPERTY.
+      <em class="a-blue">CLEAN.</em>
+      <em class="a-green">TIDY.</em>
+      <em class="a-amber">SORTED.</em>
+    </h1>
+    <p class="hero-sub">Gutter cleaning, lawn maintenance, and rubbish uplifts — all done properly, all done locally. One team, one call, everything covered.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#additional" class="btn-outline">See All Services</a>
+    </div>
+    <div class="hero-pills">
+      <span class="svc-pill pill-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Gutter Cleaning
+      </span>
+      <span class="svc-pill pill-green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9zM12 12c0-5 5-9 10-9-1 5-5 9-10 9z"/></svg>
+        Lawn Maintenance
+      </span>
+      <span class="svc-pill pill-amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/><path d="M10 11v6M14 11v6"/></svg>
+        Rubbish Uplifts
+      </span>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Fully Insured
+      </span>
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        5-Star on Facebook
+      </span>
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Transparent Pricing
+      </span>
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Prompt &amp; Reliable
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="container">
+    <p class="section-label lbl-blue">Why choose us</p>
+    <h2 class="section-title">We Go The Extra Mile — Every Time</h2>
+    <p class="section-sub">One local team covering gutters, gardens, and general uplifts. No fuss, no hidden costs — just reliable work done right.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon wi-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Locally Owned</h3>
+        <p>We're your neighbours — a West Lothian business serving West Lothian people. No call centres, just honest, personal service.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon wi-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Fully Insured</h3>
+        <p>All our work is backed by full public liability insurance across every service we offer. You're in safe hands from start to finish.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon wi-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Flexible Scheduling</h3>
+        <p>Early starts, weekends, evenings — we work around you, not the other way round. Your time matters.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon wi-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden charges, no surprise invoices. You get a clear quote upfront and that's exactly what you pay.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon wi-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Residential &amp; Commercial</h3>
+        <p>From family homes to rental properties and business premises — we work across all types of property.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon wi-amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>5-Star Reputation</h3>
+        <p>Our reviews speak for themselves. We take pride in the trust our customers place in us — and we never take it for granted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADDITIONAL SERVICES -->
+<section class="additional" id="additional">
+  <div class="container">
+    <p class="section-label lbl-green">What we do</p>
+    <h2 class="section-title">More Than Just Gutters</h2>
+    <p class="section-sub">We've expanded so you have one reliable, local team for all the outdoor jobs you've been putting off.</p>
+    <div class="add-grid">
+
+      <div class="add-card lawn">
+        <div class="add-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9zM12 12c0-5 5-9 10-9-1 5-5 9-10 9z"/></svg>
+        </div>
+        <h3>Lawn Maintenance</h3>
+        <p>A neat garden makes a real difference to how your home feels. We handle the hard work so you can simply enjoy it — whether that's a one-off tidy or a regular visit.</p>
+        <ul class="add-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Lawn mowing &amp; edging</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Hedge trimming &amp; shaping</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Weeding &amp; border clearing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> One-off or regular scheduled visits</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> All clippings and garden waste removed</li>
+        </ul>
+        <a href="#contact" class="add-cta">Get a Lawn Quote</a>
+      </div>
+
+      <div class="add-card waste">
+        <div class="add-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/><path d="M10 11v6M14 11v6"/></svg>
+        </div>
+        <h3>Rubbish Uplifts</h3>
+        <p>Garage full of junk, garden waste piling up, or leftovers from a renovation? We'll load it all up and take it away quickly, responsibly, and at a fair price.</p>
+        <ul class="add-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Household and garden waste</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Bulky items and old furniture</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Post-renovation and builder's waste</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Garage and shed clearances</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Responsibly disposed of and recycled</li>
+        </ul>
+        <a href="#contact" class="add-cta">Get an Uplift Quote</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUTTER PLANS -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-label lbl-blue">Gutter cleaning plans</p>
+    <h2 class="section-title">One-Off or Ongoing — We've Got You</h2>
+    <p class="section-sub">Choose a single clean or protect your property year-round with a repeat plan at a better rate.</p>
+    <div class="plans-grid">
+
+      <div class="plan-card">
+        <span class="plan-badge">One-Off</span>
+        <h3>Single Clean</h3>
+        <p class="plan-desc">Need a one-time job done properly? We'll clear your gutters fully with no obligation to book again.</p>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full gutter clearout</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Downpipe check and flush</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Post-clean condition report</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> No contract required</li>
+        </ul>
+        <a href="#contact" class="plan-cta">Get a Quote</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="plan-badge">Quarterly Plan</span>
+        <h3>Every 3 Months</h3>
+        <p class="plan-desc">Ideal for tree-lined properties. Four seasonal visits keep gutters clear through all weathers year-round.</p>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 4 visits per year</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Priority scheduling</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Discounted plan rate</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automatic reminder service</li>
+        </ul>
+        <a href="#contact" class="plan-cta">Get a Quote</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="plan-badge">Biannual Plan</span>
+        <h3>Every 6 Months</h3>
+        <p class="plan-desc">Our most popular option. Spring and autumn visits catch the main blockage seasons and keep things flowing all year.</p>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 2 visits per year</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Priority scheduling</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Discounted plan rate</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automatic reminder service</li>
+        </ul>
+        <a href="#contact" class="plan-cta">Get a Quote</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="plan-badge gold">Annual Plan</span>
+        <h3>Once a Year</h3>
+        <p class="plan-desc">Great for newer builds or lower-risk properties. One thorough clean a year for complete peace of mind.</p>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 1 comprehensive visit per year</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Best value annual rate</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Flexible timing — your choice of month</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Automatic reminder service</li>
+        </ul>
+        <a href="#contact" class="plan-cta">Get a Quote</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas" id="areas">
+  <div class="container">
+    <div class="areas-grid">
+      <div>
+        <p class="section-label lbl-blue">Coverage</p>
+        <h2 class="section-title light">West Lothian &amp; Beyond</h2>
+        <p class="section-sub light">Based in Bathgate, we cover towns and villages right across West Lothian. Not sure if we reach you? Just ask — we'll do our best.</p>
+        <div class="areas-list">
+          <span class="area-pill">Bathgate</span>
+          <span class="area-pill">Livingston</span>
+          <span class="area-pill">Linlithgow</span>
+          <span class="area-pill">Whitburn</span>
+          <span class="area-pill">Blackburn</span>
+          <span class="area-pill">Armadale</span>
+          <span class="area-pill">Broxburn</span>
+          <span class="area-pill">Uphall</span>
+          <span class="area-pill">Bo'ness</span>
+          <span class="area-pill">Fauldhouse</span>
+          <span class="area-pill">Polbeth</span>
+          <span class="area-pill">East Calder</span>
+          <span class="area-pill">Mid Calder</span>
+          <span class="area-pill">Stoneyburn</span>
+          <span class="area-pill">+ surrounding areas</span>
+        </div>
+      </div>
+      <div class="areas-visual">
+        <div class="stat-row">
+          <div class="stat-num sn-blue">3</div>
+          <div class="stat-text">Services under one roof — gutters, lawns, uplifts</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-row">
+          <div class="stat-num sn-green">4</div>
+          <div class="stat-text">Gutter care plans to suit every home and budget</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-row">
+          <div class="stat-num sn-amber">0</div>
+          <div class="stat-text">Hidden fees — ever. The quote is always the price</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-row">
+          <div class="stat-num sn-white">★★★★★</div>
+          <div class="stat-text">Rated 5 stars by customers on Facebook</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-label lbl-blue">Get in touch</p>
+    <h2 class="section-title">Request a Free Quote</h2>
+    <p class="section-sub">Tell us what you need and we'll get back to you quickly with a straightforward, no-obligation quote.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Prefer to reach out directly?</h3>
+
+        <div class="contact-row">
+          <div class="contact-row-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <strong>Facebook</strong>
+            <a href="https://www.facebook.com/profile.php?id=61575166768384" target="_blank" rel="noopener">Message us on Facebook</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <strong>Based in</strong>
+            <span>Bathgate, West Lothian, Scotland</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-row-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <strong>Response time</strong>
+            <span>We aim to reply within a few hours</span>
+          </div>
+        </div>
+
+        <div class="info-box dark">
+          <p>Not sure what you need?</p>
+          <small>Just drop us a message — we'll have a look and give you honest advice. No pressure, no obligation.</small>
+        </div>
+        <div class="info-box gr">
+          <p>Bundle and save</p>
+          <small>Combine gutters, lawn, or a rubbish uplift on the same visit and ask us about a combined rate.</small>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Get Your Free Quote</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="e.g. John">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="e.g. Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="07xxx xxxxxx">
+        </div>
+        <div class="form-group">
+          <label for="postcode">Postcode</label>
+          <input type="text" id="postcode" placeholder="e.g. EH48 2AB">
+        </div>
+        <div class="form-group">
+          <label for="service">Service Required</label>
+          <select id="service">
+            <option value="">— Select a service —</option>
+            <optgroup label="Gutter Cleaning">
+              <option>Gutter Cleaning — One-Off</option>
+              <option>Gutter Cleaning — Quarterly Plan (every 3 months)</option>
+              <option>Gutter Cleaning — Biannual Plan (every 6 months)</option>
+              <option>Gutter Cleaning — Annual Plan (once a year)</option>
+            </optgroup>
+            <optgroup label="Additional Services">
+              <option>Lawn Maintenance</option>
+              <option>Rubbish Uplift</option>
+              <option>Multiple services — combined quote please</option>
+            </optgroup>
+            <option>Not sure — I'd like some advice</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" placeholder="e.g. two-storey house, lots of trees nearby, garage full of old furniture..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit()">Send My Quote Request</button>
+        <p class="form-note">No spam, no obligation — just an honest quote from a local team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <span class="lw">XTRA </span><span class="lb">M</span><span class="lg">I</span><span class="la">L</span><span class="lw">E</span>
+  </div>
+  <p class="footer-tagline">Gutters &nbsp;·&nbsp; Lawns &nbsp;·&nbsp; Uplifts &nbsp;·&nbsp; West Lothian</p>
+  <div class="footer-links">
+    <a href="#why">Why Us</a>
+    <a href="#additional">Our Services</a>
+    <a href="#services">Gutter Plans</a>
+    <a href="#areas">Areas</a>
+    <a href="#contact">Get a Quote</a>
+    <a href="https://www.facebook.com/profile.php?id=61575166768384" target="_blank" rel="noopener">Facebook</a>
+  </div>
+  <p>Xtra Mile Property Services &bull; Bathgate, West Lothian &bull; &copy; 2025</p>
+</footer>
+
+<script>
+function handleSubmit() {
+  const fname = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const service = document.getElementById('service').value;
+  if (!fname || !phone || !service) {
+    alert('Please fill in your name, phone number, and the service you need.');
+    return;
+  }
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = "Request Sent! We'll be in touch shortly.";
+  btn.style.background = '#2e9e5b';
+  btn.disabled = true;
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
