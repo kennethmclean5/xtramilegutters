@@ -262,7 +262,7 @@
 
   .offer-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 3rem 2rem;
     margin-top: 3.5rem;
   }
@@ -273,7 +273,11 @@
     align-items: center;
     text-align: center;
     padding: 0 0.5rem;
+    grid-column: span 2;
   }
+
+  .offer-card:nth-child(4) { grid-column: 2 / span 2; }
+  .offer-card:nth-child(5) { grid-column: 4 / span 2; }
 
   .offer-icon {
     width: 64px; height: 64px;
@@ -317,6 +321,9 @@
 
   @media (max-width: 1024px) {
     .offer-grid { grid-template-columns: repeat(2, 1fr); }
+    .offer-card,
+    .offer-card:nth-child(4),
+    .offer-card:nth-child(5) { grid-column: auto; }
   }
 
   @media (max-width: 600px) {
@@ -1027,7 +1034,7 @@
       <em class="a-green">TIDY.</em>
       <em class="a-amber">SORTED.</em>
     </h1>
-    <p class="hero-sub">Gutter cleaning, lawn maintenance, and rubbish uplifts — all done properly, all done locally. One team, one call, everything covered.</p>
+    <p class="hero-sub">Gutter cleaning, lawn maintenance, and rubbish uplifts, all done properly, all done locally. One team, one call, everything covered.</p>
     <div class="hero-actions">
       <a href="#quote" class="btn-primary">Get a Free Quote</a>
       <a href="#additional" class="btn-outline">See All Services</a>
@@ -1072,7 +1079,7 @@
   <div class="container">
     <p class="section-label lbl-green">Our services</p>
     <h2 class="section-title">What We Offer</h2>
-    <p class="section-sub">One reliable, local team for all the outdoor jobs you've been putting off — gutters, roof, garden, and everything in between.</p>
+    <p class="section-sub">One reliable, local team for all the outdoor jobs you've been putting off, gutters, roof, garden, and everything in between.</p>
     <div class="offer-grid">
 
       <div class="offer-card">
@@ -1088,7 +1095,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
         </div>
         <h3>Gutter Repair</h3>
-        <p>Loose brackets, leaks, and damaged downpipes fixed properly — getting things back to flowing the way they should.</p>
+        <p>Loose brackets, leaks, and damaged downpipes fixed properly, getting things back to flowing the way they should.</p>
       </div>
 
       <div class="offer-card">
@@ -1096,7 +1103,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l9-9 9 9"/><line x1="3" y1="13" x2="21" y2="13"/><path d="M12 8.5l-0.6 1.7L9.5 11l1.9 0.6L12 13.5l0.6-1.9L14.5 11l-1.9-0.8z"/></svg>
         </div>
         <h3>Roof Cleaning</h3>
-        <p>Moss and debris cleared by dry scraping — no high-pressure water — with small repairs handled along the way.</p>
+        <p>Moss and debris cleared by dry scraping, no high-pressure water, with small repairs handled along the way.</p>
       </div>
 
       <div class="offer-card">
@@ -1104,7 +1111,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9zM12 12c0-5 5-9 10-9-1 5-5 9-10 9z"/></svg>
         </div>
         <h3>Lawn Maintenance</h3>
-        <p>Lawn mowing, hedge trimming, weeding — regular visits or one-off tidies to keep your garden looking sharp.</p>
+        <p>Lawn mowing, hedge trimming, weeding, regular visits or one-off tidies to keep your garden looking sharp.</p>
       </div>
 
       <div class="offer-card">
@@ -1112,7 +1119,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
         </div>
         <h3>Rubbish Uplifts</h3>
-        <p>Garage clearances, garden waste, post-renovation rubbish — loaded up, hauled away, responsibly disposed of.</p>
+        <p>Garage clearances, garden waste, post-renovation rubbish, loaded up, hauled away, responsibly disposed of.</p>
       </div>
 
     </div>
@@ -1127,7 +1134,7 @@
   <div class="container">
     <p class="section-label lbl-blue">Real results</p>
     <h2 class="section-title">See the Difference</h2>
-    <p class="section-sub">Drag the slider to see what a proper clean looks like — same gutter, before and after.</p>
+    <p class="section-sub">Drag the slider to see what a proper clean looks like, same gutter, before and after.</p>
     <div class="ba-slider" role="slider" aria-label="Before and after comparison slider" tabindex="0">
       <img class="ba-img ba-after" src="/gutter-after.jpeg" alt="Gutter after cleaning">
       <img class="ba-img ba-before" src="/gutter-before.jpeg" alt="Gutter before cleaning">
@@ -1147,7 +1154,7 @@
   <div class="container">
     <p class="section-label lbl-blue">Quick quote</p>
     <h2 class="section-title">Build Your Quote</h2>
-    <p class="section-sub">Three quick steps and we'll come back to you with a price — no calls, no pressure.</p>
+    <p class="section-sub">Three quick steps and we'll come back to you with a price, no calls, no pressure.</p>
 
     <div class="qb-wrap">
       <div class="qb-progress">
@@ -1246,7 +1253,7 @@
 
       <!-- Step 4: Send -->
       <div class="qb-panel" data-step="4">
-        <h3 class="qb-panel-title">All set — how should we send it?</h3>
+        <h3 class="qb-panel-title">All set, how should we send it?</h3>
         <p class="qb-panel-sub">Pick a channel and we'll come back to you within a few hours.</p>
         <div class="qb-summary" id="qb-summary"></div>
         <div class="qb-send-buttons">
@@ -1271,15 +1278,15 @@
 <section class="why collapse-mobile" id="why">
   <div class="container">
     <p class="section-label lbl-blue">Why choose us</p>
-    <h2 class="section-title">We Go The Extra Mile — Every Time</h2>
-    <p class="section-sub">One local team covering gutters, gardens, and general uplifts. No fuss, no hidden costs — just reliable work done right.</p>
+    <h2 class="section-title">We Go The Extra Mile, Every Time</h2>
+    <p class="section-sub">One local team covering gutters, gardens, and general uplifts. No fuss, no hidden costs, just reliable work done right.</p>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
         </div>
         <h3>Locally Owned</h3>
-        <p>We're your neighbours — a West Lothian business serving West Lothian people. No call centres, just honest, personal service.</p>
+        <p>We're your neighbours, a West Lothian business serving West Lothian people. No call centres, just honest, personal service.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
@@ -1293,7 +1300,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>Flexible Scheduling</h3>
-        <p>Early starts, weekends, evenings — we work around you, not the other way round. Your time matters.</p>
+        <p>Early starts, weekends, evenings, we work around you, not the other way round. Your time matters.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
@@ -1307,14 +1314,14 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
         <h3>Residential &amp; Commercial</h3>
-        <p>From family homes to rental properties and business premises — we work across all types of property.</p>
+        <p>From family homes to rental properties and business premises, we work across all types of property.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <h3>5-Star Reputation</h3>
-        <p>Our reviews speak for themselves. We take pride in the trust our customers place in us — and we never take it for granted.</p>
+        <p>Our reviews speak for themselves. We take pride in the trust our customers place in us, and we never take it for granted.</p>
       </div>
     </div>
   </div>
@@ -1327,7 +1334,7 @@
       <div>
         <p class="section-label lbl-blue">Coverage</p>
         <h2 class="section-title light">West Lothian &amp; Beyond</h2>
-        <p class="section-sub light">Based in Bathgate, we cover towns and villages right across West Lothian. Not sure if we reach you? Just ask — we'll do our best.</p>
+        <p class="section-sub light">Based in Bathgate, we cover towns and villages right across West Lothian. Not sure if we reach you? Just ask, we'll do our best.</p>
         <div class="areas-list">
           <span class="area-pill">Bathgate</span>
           <span class="area-pill">Livingston</span>
@@ -1349,7 +1356,7 @@
       <div class="areas-visual">
         <div class="stat-row">
           <div class="stat-num sn-blue">3</div>
-          <div class="stat-text">Services under one roof — gutters, lawns, uplifts</div>
+          <div class="stat-text">Services under one roof, gutters, lawns, uplifts</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-row">
@@ -1359,7 +1366,7 @@
         <div class="stat-divider"></div>
         <div class="stat-row">
           <div class="stat-num sn-amber">0</div>
-          <div class="stat-text">Hidden fees — ever. The quote is always the price</div>
+          <div class="stat-text">Hidden fees, ever. The quote is always the price</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-row">
@@ -1422,7 +1429,6 @@ function initQuoteBuilder() {
     });
     wrap.querySelectorAll('.qb-line').forEach((l, i) => l.classList.toggle('done', i + 1 < num));
     if (num === 4) buildSummary();
-    wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   wrap.querySelectorAll('.qb-next').forEach(btn => {
@@ -1456,7 +1462,7 @@ function initQuoteBuilder() {
     const notes    = wrap.querySelector('#qb-notes').value.trim();
 
     const row = (label, val) => `<div class="qb-summary-row"><strong>${label}</strong><span>${val}</span></div>`;
-    let html = row('Services', services) + row('Postcode', postcode) + row('Property', ptype + (address ? ' — ' + address : '')) + row('Name', name);
+    let html = row('Services', services) + row('Postcode', postcode) + row('Property', ptype + (address ? ',' + address : '')) + row('Name', name);
     if (phone) html += row('Phone', phone);
     if (notes) html += row('Notes', notes);
     wrap.querySelector('#qb-summary').innerHTML = html;
